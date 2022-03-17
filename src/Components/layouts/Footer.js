@@ -18,7 +18,7 @@ function Footer(){
                 <a><FaInstagram /></a>
                </li>
            </ul>
-           <p className={styles.direito}><span>Costs</span> &copy;2022 Nikolas Oliveira</p>
+           <p className={styles.direito}> &copy;2022 Nikolas Oliveira</p>
        </footer>
     )
 }

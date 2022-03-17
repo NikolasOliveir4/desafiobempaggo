@@ -82,7 +82,7 @@ function AdesiveForm2({handleSubmit ,btnText, projectData, categories}){
     return (
         <form onSubmit={submit} className={styles.form}>
             <Select name='category_id' placeholder='Selecione o adesivo' text='Escolha o Adesivo'  handleOnChange={handleCategory} options={opcoes} value={project.id ? project.id : ''}/>
-            <Input type='number' text='Estoque do adesivo' name='estoque' placeholder='Insira o estoque total' handleOnChange={handleChange} value={project.estoque ? project.estoque : null}/>
+            <Input type='number' text='Estoque atual do adesivo' name='estoque' placeholder='Insira o estoque total' handleOnChange={handleChange} value={project.estoque ? project.estoque : null}/>
             
             <SubmitButton text={btnText}/>
             
