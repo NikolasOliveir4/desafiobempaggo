@@ -1,0 +1,10 @@
+{
+  "Adesivos": [
+    {
+      "name": "React",
+      "id": 1,
+      "estoque": "10"
+    }
+  ],
+  "Pedidos": []
+}

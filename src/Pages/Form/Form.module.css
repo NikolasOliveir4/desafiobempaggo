@@ -1,0 +1,35 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    padding: 30px;
+}
+
+.form_container{
+    margin: 5px;
+    width: 600px;
+    height:100vh;
+    background-color: white;
+    border-radius: 5px;
+}
+header{
+    background-color: #2f3676;
+    height: 140px;
+    border-radius: 0px 0px 80px 80px
+}
+
+.titlepage{
+    padding: 30px;
+    font-size: 15px;
+    color: #fff;
+    
+}
+
+.titlepage span{
+    font-weight: bold;
+    font-size: 20px;
+}
+
