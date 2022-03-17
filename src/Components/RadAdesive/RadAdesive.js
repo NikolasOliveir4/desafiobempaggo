@@ -1,7 +1,11 @@
 function RadAdesive({adesive}){
+
+    
+
     return(
         <div>
-            <p>{adesive}</p>
+            <input type='radio' id='adesivo' />
+            <label for='adesivo'>{adesive}</label>
         </div>
     )
 }

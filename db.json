@@ -4,6 +4,16 @@
       "name": "React",
       "id": 1,
       "estoque": "10"
+    },
+    {
+      "name": "Vue",
+      "id": 2,
+      "estoque": "20"
+    },
+    {
+      "name": "Angular",
+      "id": 3,
+      "estoque": "50"
     }
   ],
   "Pedidos": []
