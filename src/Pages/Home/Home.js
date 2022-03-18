@@ -7,28 +7,36 @@ import {useState, useEffect} from 'react'
 
 function Home(){
 
-    const [adesivos, setAdesivos] = useState()
+    const [adesivos, setAdesivos] = useState([])
     const [showNewTransf, setShowNewTransf] = useState(false)
-    const [opcoes, setOpcoes] = useState([])
+    
+    const [isUpdate, setIsUpdate] = useState(false)
+    
     
 
     useEffect(()=>{
-        fetch('http://localhost:5000/adesivos',{
-            method: 'GET',
-            headers: {
-                'Content-type': 'aplication/json',
-            },
-        })  
-            .then((resp)=> resp.json())
-            .then((data) =>{
-                setOpcoes(data)
-            })
-            .catch((err) => console.log(err))
-            console.log('fez o fetch')
-    },[])
+        console.log(isUpdate)
+        if(isUpdate){
+            fetch('http://localhost:5000/adesivos',{
+                method: 'GET',
+                headers: {
+                    'Content-type': 'aplication/json',
+                },
+            })  
+                .then((resp)=> resp.json())
+                .then((data) =>{
+                    setAdesivos(data)
+                })
+                .catch((err) => console.log(err))
+                setIsUpdate(false)
+                
+        }
+        
+       
+    },[isUpdate])
 
     function createPost(adesivo){
-        
+        console.log(adesivo)
         fetch('http://localhost:5000/adesivos',{
             method: 'POST',
             headers: {
@@ -37,15 +45,10 @@ function Home(){
             body: JSON.stringify(adesivo),
 
         })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
-            setAdesivos(data)
-            //redirect
-           
-        })
-        .catch(err=>console.log(err))
+        .then(()=> {setIsUpdate(true)})    
+        .catch((err) => console.log(err))
 
+       
         
     }
 
@@ -54,7 +57,7 @@ function Home(){
     function toggleNewTransf(){
         setShowNewTransf(!showNewTransf)
         
-        console.log('apertou o botão')
+        
     }
 
     return(

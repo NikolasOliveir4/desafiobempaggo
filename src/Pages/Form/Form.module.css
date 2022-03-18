@@ -18,18 +18,25 @@
     height:85vh;
     background-color: white;
     border-radius: 5px;
+    position: relative;
+    overflow-x: hidden;
 }
 
 header{
-    background-color: #2f3676;
-    height: 140px;
-    border-radius: 0px 0px 80px 80px
+    display: flex;
+    flex-direction: column;
 }
 
+h2{
+    margin-top: 20px;
+}
+
+
 .titlepage{
-    padding: 30px;
-    font-size: 15px;
-    color: #fff;
+    padding: 22px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    z-index: 2;
     
 }
 
@@ -49,3 +56,21 @@ header{
     align-self: center;
 }
 
+.svgwave{
+    position: absolute 0 0;
+    z-index: -1;
+}
+
+.svgwave path{
+    fill: #2f3676;
+}
+
+.wave_container{
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    display: block;
+    left: 0;
+    width: 100%;
+    transform: scale(1.180);
+}

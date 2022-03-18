@@ -7,11 +7,13 @@ import SubmitButton from '../form/SubmitButton'
 
 import styles from './ProjectForm.module.css'
 
-function AdesiveForm({handleSubmit ,btnText, projectData}){
+function AdesiveForm({handleSubmit ,btnText}){
 
-    const [project, setProject] = useState(projectData || {} )
+    const [project, setProject] = useState('')
     
-   
+    const [style, setStyle]= useState({ 
+        
+        class: 'form_column', })
     
    
     
@@ -22,11 +24,12 @@ function AdesiveForm({handleSubmit ,btnText, projectData}){
 
         if( project.name == null ){
            
-            console.log('TÁ VAZIO O CAMPO')
+            alert('TÁ VAZIO O CAMPO')
            
         }
         else{
            handleSubmit(project)
+           setProject({name:''})
         }
         
         
@@ -44,7 +47,13 @@ function AdesiveForm({handleSubmit ,btnText, projectData}){
 
     return (
         <form onSubmit={submit} className={styles.form}>
-            <Input type='text' text='Nome do Adesivo' name='name' placeholder='Insira o nome do adesivo' handleOnChange={handleChange} value={project.name ? project.name : null}/>
+            <Input type='text' 
+            text='Nome do Adesivo' 
+            name='name' 
+            placeholder='Insira o nome do adesivo' 
+            handleOnChange={handleChange} 
+            value={project.name ? project.name : null}
+            tipo={style}/>
             
             <SubmitButton text={btnText}/>
             

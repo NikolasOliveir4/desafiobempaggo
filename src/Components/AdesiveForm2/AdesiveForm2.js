@@ -13,24 +13,15 @@ function AdesiveForm2({handleSubmit ,btnText, projectData, categories}){
     
     const [project, setProject] = useState(projectData || {} )
     const [opcoes, setOpcoes] = useState([])
-    
-    
-     
-    useEffect(()=>{
-        fetch('http://localhost:5000/adesivos',{
-            method: 'GET',
-            headers: {
-                'Content-type': 'aplication/json',
-            },
-        })  
-            .then((resp)=> resp.json())
-            .then((data) =>{
-                setOpcoes(data)
-            })
-            .catch((err) => console.log(err))
-            console.log('fez o fetch')
-    },[])
+    const [data, setData] = useState([])
 
+    const [style, setStyle]= useState({ 
+        
+        class: 'form_column', })
+    
+    console.log(projectData)
+     
+        const estoque = project[0].estoque
 
     
 
@@ -39,7 +30,9 @@ function AdesiveForm2({handleSubmit ,btnText, projectData, categories}){
         e.preventDefault() 
 
         console.log('testado')
-        fetch(`http://localhost:5000/adesivos/${project.id}`,{
+        console.log(projectData[0].id)
+        console.log(project)
+        fetch(`http://localhost:5000/adesivos/${projectData[0].id}`,{
             method: 'PATCH',
             headers: {
                 'Content-type': 'application/json',
@@ -81,8 +74,8 @@ function AdesiveForm2({handleSubmit ,btnText, projectData, categories}){
 
     return (
         <form onSubmit={submit} className={styles.form}>
-            <Select name='category_id' placeholder='Selecione o adesivo' text='Escolha o Adesivo'  handleOnChange={handleCategory} options={opcoes} value={project.id ? project.id : ''}/>
-            <Input type='number' text='Estoque atual do adesivo' name='estoque' placeholder='Insira o estoque total' handleOnChange={handleChange} value={project.estoque ? project.estoque : null}/>
+            <Select name='category_id' placeholder='Selecione o adesivo' text='Escolha o Adesivo'  handleOnChange={handleCategory} options={projectData} value={project.id ? project.id : ''}/>
+            <Input type='number' text='Estoque atual do adesivo' name='estoque' placeholder='Insira o estoque total' handleOnChange={handleChange} value={project.estoque ? project.estoque : null} tipo={style}/>
             
             <SubmitButton text={btnText}/>
             

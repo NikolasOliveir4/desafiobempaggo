@@ -4,10 +4,10 @@
     padding: 0.5em 1em;
     text-decoration: none;
     transition: 0.5s;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .btn:hover{
-    color: #ffbb33;
+    color: rgba(138,43,226);
     box-shadow: 2px 2px 2px 1px rgba(255, 255, 255, 0.123)
 }

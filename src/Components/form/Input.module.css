@@ -1,21 +1,44 @@
-.form_control{
+.form_row{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 1em;
 
 }
+.form_column{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    margin-top: 20px;
 
-.form_control label{
+}
+
+
+.form_row label{
     margin-bottom: .6em;
     font-weight: bold;
 }
 
-.form_control input{
+.form_row input{
     padding: .7em;
     border-radius: 0;
     border: none;
 }
 
-.form_control input::placeholder{
+.form_row input::placeholder{
+    color: #7b7b7b;
+}
+
+.form_column label{
+    margin-bottom: .6em;
+    font-weight: bold;
+}
+
+.form_column input{
+    padding: .7em;
+    border-radius: 0;
+    border: none;
+}
+
+.form_column input::placeholder{
     color: #7b7b7b;
 }
